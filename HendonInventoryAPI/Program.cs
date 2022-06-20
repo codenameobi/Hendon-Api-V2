@@ -1,6 +1,12 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using HendonInventoryAPI.Data;
+
+var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("Pizzas") ?? "Data Source=Pizzas.db";
+
 
 // Add services to the container.
+builder.Services.AddSqlite<HendonDb>(connectionString);
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
