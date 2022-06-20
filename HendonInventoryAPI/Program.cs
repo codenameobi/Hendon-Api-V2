@@ -1,7 +1,12 @@
 ﻿using HendonInventoryAPI.Data;
+using HendonInventoryAPI.Interfaces;
+using HendonInventoryAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("equipments") ?? "Data Source=Pizzas.db";
+
+// Register interface and classes
+builder.Services.AddScoped<IEventsRepository, EventService>();
 
 
 // Add services to the container.

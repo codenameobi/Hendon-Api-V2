@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HendonInventoryAPI.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class FirstCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

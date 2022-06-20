@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HendonInventoryAPI.Migrations
 {
     [DbContext(typeof(HendonDb))]
-    [Migration("20220620215842_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220620230043_FirstCreate")]
+    partial class FirstCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -90,7 +90,7 @@ namespace HendonInventoryAPI.Migrations
             modelBuilder.Entity("HendonInventoryAPI.Models.EquipmentInUse", b =>
                 {
                     b.HasOne("HendonInventoryAPI.Models.Equipment", "Equipment")
-                        .WithMany()
+                        .WithMany("EquipmentIns")
                         .HasForeignKey("EquipmentID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -104,6 +104,11 @@ namespace HendonInventoryAPI.Migrations
                     b.Navigation("Equipment");
 
                     b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("HendonInventoryAPI.Models.Equipment", b =>
+                {
+                    b.Navigation("EquipmentIns");
                 });
 
             modelBuilder.Entity("HendonInventoryAPI.Models.Event", b =>
