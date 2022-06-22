@@ -20,7 +20,6 @@ namespace HendonInventoryAPI.Migrations
             modelBuilder.Entity("HendonInventoryAPI.Models.Equipment", b =>
                 {
                     b.Property<int>("EquipmentID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("CreatedAt")
@@ -40,12 +39,12 @@ namespace HendonInventoryAPI.Migrations
 
                     b.HasKey("EquipmentID");
 
-                    b.ToTable("Equipments");
+                    b.ToTable("Equipment", (string)null);
                 });
 
             modelBuilder.Entity("HendonInventoryAPI.Models.EquipmentInUse", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("ItemID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -58,13 +57,13 @@ namespace HendonInventoryAPI.Migrations
                     b.Property<int>("EventID")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ID");
+                    b.HasKey("ItemID");
 
                     b.HasIndex("EquipmentID");
 
                     b.HasIndex("EventID");
 
-                    b.ToTable("EquipmentIns");
+                    b.ToTable("EquipmentInUse", (string)null);
                 });
 
             modelBuilder.Entity("HendonInventoryAPI.Models.Event", b =>
@@ -82,7 +81,7 @@ namespace HendonInventoryAPI.Migrations
 
                     b.HasKey("EventID");
 
-                    b.ToTable("Events");
+                    b.ToTable("Event", (string)null);
                 });
 
             modelBuilder.Entity("HendonInventoryAPI.Models.EquipmentInUse", b =>

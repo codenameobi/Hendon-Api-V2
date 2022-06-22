@@ -32,12 +32,12 @@ namespace HendonInventoryAPI.Data
             var equipments = new Equipment[]
             {
             new Equipment{EquipmentID=1050,EquipmentName="Chemistry",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
-            new Equipment{EquipmentID=1052,EquipmentName="Chemistry2",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
-            new Equipment{EquipmentID=1053,EquipmentName="Chemistry3",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
-            new Equipment{EquipmentID=1054,EquipmentName="light",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
-            new Equipment{EquipmentID=1055,EquipmentName="table",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
-            new Equipment{EquipmentID=1056,EquipmentName="chair",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
-            new Equipment{EquipmentID=1057,EquipmentName="post",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
+            new Equipment{EquipmentID=4022,EquipmentName="Chemistry2",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
+            new Equipment{EquipmentID=4041,EquipmentName="Chemistry3",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
+            new Equipment{EquipmentID=1045,EquipmentName="light",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
+            new Equipment{EquipmentID=3141,EquipmentName="table",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
+            new Equipment{EquipmentID=2021,EquipmentName="chair",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
+            new Equipment{EquipmentID=2022,EquipmentName="post",Description="workimg pro",ImagePath="wrrefcf", CreatedAt=DateTime.Parse("2022-06-20")},
             };
 
             context.Equipments.AddRange(equipments);
@@ -46,16 +46,16 @@ namespace HendonInventoryAPI.Data
             var enrollments = new EquipmentInUse[]
             {
                 new EquipmentInUse{EventID=1,EquipmentID=1050,EquipmentStatus =EquipmentStatus.Missing},
-                new EquipmentInUse{EventID=1,EquipmentID=1052,EquipmentStatus =EquipmentStatus.Occuiped},
-                new EquipmentInUse{EventID=1,EquipmentID=1053,EquipmentStatus =EquipmentStatus.Missing},
-                new EquipmentInUse{EventID=2,EquipmentID=1053,EquipmentStatus =EquipmentStatus.Packed},
-                new EquipmentInUse{EventID=2,EquipmentID=1054,EquipmentStatus =EquipmentStatus.Occuiped},
-                new EquipmentInUse{EventID=2,EquipmentID=1057,EquipmentStatus =EquipmentStatus.Occuiped},
-                new EquipmentInUse{EventID=3,EquipmentID=1056,EquipmentStatus =EquipmentStatus.Missing},
-                new EquipmentInUse{EventID=4,EquipmentID=1055,EquipmentStatus =EquipmentStatus.Missing},
-                new EquipmentInUse{EventID=5,EquipmentID=1052,EquipmentStatus =EquipmentStatus.Packed},
-                new EquipmentInUse{EventID=6,EquipmentID=1054,EquipmentStatus =EquipmentStatus.Packed},
-                new EquipmentInUse{EventID=7,EquipmentID=1051,EquipmentStatus =EquipmentStatus.Missing},
+                new EquipmentInUse{EventID=1,EquipmentID=4022,EquipmentStatus =EquipmentStatus.Occuiped},
+                new EquipmentInUse{EventID=1,EquipmentID=4041,EquipmentStatus =EquipmentStatus.Missing},
+                new EquipmentInUse{EventID=2,EquipmentID=1045,EquipmentStatus =EquipmentStatus.Packed},
+                new EquipmentInUse{EventID=2,EquipmentID=3141,EquipmentStatus =EquipmentStatus.Occuiped},
+                new EquipmentInUse{EventID=2,EquipmentID=2021,EquipmentStatus =EquipmentStatus.Occuiped},
+                new EquipmentInUse{EventID=3,EquipmentID=4022,EquipmentStatus =EquipmentStatus.Missing},
+                new EquipmentInUse{EventID=4,EquipmentID=2022,EquipmentStatus =EquipmentStatus.Missing},
+                new EquipmentInUse{EventID=5,EquipmentID=3141,EquipmentStatus =EquipmentStatus.Packed},
+                new EquipmentInUse{EventID=6,EquipmentID=2021,EquipmentStatus =EquipmentStatus.Packed},
+                new EquipmentInUse{EventID=7,EquipmentID=1050,EquipmentStatus =EquipmentStatus.Missing},
             };
             context.EquipmentIns.AddRange(enrollments);
             context.SaveChanges();

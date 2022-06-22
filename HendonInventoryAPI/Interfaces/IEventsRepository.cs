@@ -7,6 +7,7 @@ namespace HendonInventoryAPI.Interfaces
 	{
 		IEnumerable<Event> GetEvents();
 		IEnumerable<EquipmentInUse> GetEquipmentsInUse();
+		
 	}
 }
 

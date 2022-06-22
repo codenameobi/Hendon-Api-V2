@@ -3,7 +3,7 @@ using HendonInventoryAPI.Interfaces;
 using HendonInventoryAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("equipments") ?? "Data Source=Pizzas.db";
+var connectionString = builder.Configuration.GetConnectionString("inventory") ?? "Data Source=Inventory.db";
 
 // Register interface and classes
 builder.Services.AddScoped<IEventsRepository, EventService>();

@@ -10,11 +10,10 @@ namespace HendonInventoryAPI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Equipments",
+                name: "Equipment",
                 columns: table => new
                 {
-                    EquipmentID = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    EquipmentID = table.Column<int>(type: "INTEGER", nullable: false),
                     EquipmentName = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
                     ImagePath = table.Column<string>(type: "TEXT", nullable: false),
@@ -22,11 +21,11 @@ namespace HendonInventoryAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Equipments", x => x.EquipmentID);
+                    table.PrimaryKey("PK_Equipment", x => x.EquipmentID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Events",
+                name: "Event",
                 columns: table => new
                 {
                     EventID = table.Column<int>(type: "INTEGER", nullable: false)
@@ -36,14 +35,14 @@ namespace HendonInventoryAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Events", x => x.EventID);
+                    table.PrimaryKey("PK_Event", x => x.EventID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "EquipmentIns",
+                name: "EquipmentInUse",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                    ItemID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     EquipmentID = table.Column<int>(type: "INTEGER", nullable: false),
                     EventID = table.Column<int>(type: "INTEGER", nullable: false),
@@ -51,42 +50,42 @@ namespace HendonInventoryAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EquipmentIns", x => x.ID);
+                    table.PrimaryKey("PK_EquipmentInUse", x => x.ItemID);
                     table.ForeignKey(
-                        name: "FK_EquipmentIns_Equipments_EquipmentID",
+                        name: "FK_EquipmentInUse_Equipment_EquipmentID",
                         column: x => x.EquipmentID,
-                        principalTable: "Equipments",
+                        principalTable: "Equipment",
                         principalColumn: "EquipmentID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EquipmentIns_Events_EventID",
+                        name: "FK_EquipmentInUse_Event_EventID",
                         column: x => x.EventID,
-                        principalTable: "Events",
+                        principalTable: "Event",
                         principalColumn: "EventID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_EquipmentIns_EquipmentID",
-                table: "EquipmentIns",
+                name: "IX_EquipmentInUse_EquipmentID",
+                table: "EquipmentInUse",
                 column: "EquipmentID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EquipmentIns_EventID",
-                table: "EquipmentIns",
+                name: "IX_EquipmentInUse_EventID",
+                table: "EquipmentInUse",
                 column: "EventID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EquipmentIns");
+                name: "EquipmentInUse");
 
             migrationBuilder.DropTable(
-                name: "Equipments");
+                name: "Equipment");
 
             migrationBuilder.DropTable(
-                name: "Events");
+                name: "Event");
         }
     }
 }

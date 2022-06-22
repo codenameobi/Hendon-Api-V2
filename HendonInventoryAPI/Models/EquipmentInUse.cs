@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace HendonInventoryAPI.Models
 {
     public enum EquipmentStatus
@@ -8,7 +10,7 @@ namespace HendonInventoryAPI.Models
 
     public class EquipmentInUse
 	{
-        public int ID { get; set; }
+        public int ItemID { get; set; }
         public int EquipmentID { get; set; }
         public int EventID { get; set; }
         public EquipmentStatus? EquipmentStatus { get; set; }

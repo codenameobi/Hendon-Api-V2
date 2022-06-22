@@ -2,6 +2,7 @@
 using HendonInventoryAPI.Data;
 using HendonInventoryAPI.Interfaces;
 using HendonInventoryAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HendonInventoryAPI.Services
 {
@@ -25,6 +26,8 @@ namespace HendonInventoryAPI.Services
             List<EquipmentInUse> equipmentsInUse = _context.EquipmentIns.ToList();
             return equipmentsInUse;
         }
+
+        
     }
 }
 
