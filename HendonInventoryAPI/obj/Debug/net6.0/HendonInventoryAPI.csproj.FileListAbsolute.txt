@@ -55,3 +55,7 @@
 /Users/admin/Projects/HendonInventoryAPI/HendonInventoryAPI/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
 /Users/admin/Projects/HendonInventoryAPI/HendonInventoryAPI/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.Design.dll
 /Users/admin/Projects/HendonInventoryAPI/HendonInventoryAPI/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Sqlite.Design.dll
+/Users/admin/Projects/HendonInventoryAPI/HendonInventoryAPI/bin/Debug/net6.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/admin/Projects/HendonInventoryAPI/HendonInventoryAPI/bin/Debug/net6.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/admin/Projects/HendonInventoryAPI/HendonInventoryAPI/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/admin/Projects/HendonInventoryAPI/HendonInventoryAPI/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll

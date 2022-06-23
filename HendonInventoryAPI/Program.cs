@@ -1,6 +1,7 @@
 ﻿using HendonInventoryAPI.Data;
 using HendonInventoryAPI.Interfaces;
 using HendonInventoryAPI.Services;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("inventory") ?? "Data Source=Inventory.db";
@@ -8,7 +9,9 @@ var connectionString = builder.Configuration.GetConnectionString("inventory") ??
 // Register interface and classes
 builder.Services.AddScoped<IEventsRepository, EventService>();
 
-
+// switch to the Microsoft.AspNetCore.Mvc.NewtonsoftJson to handle the circular references problem.
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 // Add services to the container.
 builder.Services.AddSqlite<HendonDb>(connectionString);
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
