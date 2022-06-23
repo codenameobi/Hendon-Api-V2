@@ -9,7 +9,7 @@ namespace HendonInventoryAPI.Data
         {
             context.Database.EnsureCreated();
 
-            // Look for any students.
+            // Look for any events.
             if (context.Events.Any())
             {
                 return;   // DB has been seeded

@@ -41,7 +41,7 @@ namespace HendonInventoryAPI.Controllers
             return Ok(events);
         }
 
-        [Route("works")]
+        [Route("all-events-equpiments")]
         [HttpGet]
         public async Task<ActionResult<Event>> Details(int? id)
         {
@@ -52,6 +52,7 @@ namespace HendonInventoryAPI.Controllers
 
             var student = await _context.Events
                 .Include(s => s.EquipmentIns)
+                .ThenInclude(i => i.Equipment)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.EventID == id);
 
@@ -62,6 +63,54 @@ namespace HendonInventoryAPI.Controllers
 
             return Ok(student);
         }
+
+
+        [Route("create-new-equpiments")]
+        [HttpPost]
+        public async Task<IActionResult> Create(Equipment equpiment)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.Equipments.Add(equpiment);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
+            }
+            return Ok(equpiment);
+        }
+
+
+
+        //[Route("works")]
+        //[HttpGet]
+        //public async Task<ActionResult<>> Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var student = await _context.Events
+        //        .Include(s => s.EquipmentIns)
+        //        .AsNoTracking()
+        //        .FirstOrDefaultAsync(m => m.EventID == id);
+
+        //    if (student == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Ok(student);
+        //}
 
     }
 }
